@@ -1,0 +1,16 @@
+﻿local jumpObj = nil
+local dir = nil
+
+function onStart()
+    jumpObj = CS.UnityEngine.GameObject.Find('JumpObj')
+    dir = CS.UnityEngine.Vector3.Up;
+    CS.UnityEngine.Debug.Log(jumpObj == nil)
+end
+
+function onUpdate()
+    if CS.UnityEngine.Input.GetKeyDown(CS.UnityEngine.KeyCode.Space) 
+    then
+        jumpObj:GetComponent("Rigidbody").AddForce(dir);
+        --jumpObj.transform.position = jumpObj.transform.position + CS.UnityEngine.Vector3.up * 10;
+    end
+end
